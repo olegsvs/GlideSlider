@@ -196,7 +196,7 @@ public class SliderLayout extends RelativeLayout {
         });
 
         attributes.recycle();
-        setPresetIndicator(PresetIndicators.Center_Bottom);
+//        setPresetIndicator(PresetIndicators.Center_Bottom);
         setPresetTransformer(mTransformerId);
         setSliderTransformDuration(mTransformerSpan, null);
         setIndicatorVisibility(mIndicatorVisibility);
