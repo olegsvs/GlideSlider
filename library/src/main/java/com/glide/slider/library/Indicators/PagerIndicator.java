@@ -10,7 +10,8 @@ import android.graphics.drawable.LayerDrawable;
 import android.support.v4.view.PagerAdapter;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.ImageView;
+import com.github.chrisbanes.photoview.PhotoView;
+
 import android.widget.LinearLayout;
 
 import com.glide.slider.library.R;
@@ -34,7 +35,7 @@ public class PagerIndicator extends LinearLayout implements ViewPagerEx.OnPageCh
     /**
      * Variable to remember the previous selected indicator.
      */
-    private ImageView mPreviousSelectedIndicator;
+    private PhotoView mPreviousSelectedIndicator;
 
     /**
      * Previous selected indicator position.
@@ -90,7 +91,7 @@ public class PagerIndicator extends LinearLayout implements ViewPagerEx.OnPageCh
     /**
      * Put all the indicators into a ArrayList, so we can remove them easily.
      */
-    private ArrayList<ImageView> mIndicators = new ArrayList<ImageView>();
+    private ArrayList<PhotoView> mIndicators = new ArrayList<PhotoView>();
 
 
     public PagerIndicator(Context context) {
@@ -326,9 +327,9 @@ public class PagerIndicator extends LinearLayout implements ViewPagerEx.OnPageCh
     private void resetDrawable() {
         for (View i : mIndicators) {
             if (mPreviousSelectedIndicator != null && mPreviousSelectedIndicator.equals(i)) {
-                ((ImageView) i).setImageDrawable(mSelectedDrawable);
+                ((PhotoView) i).setImageDrawable(mSelectedDrawable);
             } else {
-                ((ImageView) i).setImageDrawable(mUnselectedDrawable);
+                ((PhotoView) i).setImageDrawable(mUnselectedDrawable);
             }
         }
     }
@@ -345,7 +346,7 @@ public class PagerIndicator extends LinearLayout implements ViewPagerEx.OnPageCh
 
 
         for (int i = 0; i < mItemCount; i++) {
-            ImageView indicator = new ImageView(mContext);
+            PhotoView indicator = new PhotoView(mContext);
             indicator.setImageDrawable(mUnselectedDrawable);
             indicator.setPadding((int) mUnSelectedPadding_Left,
                     (int) mUnSelectedPadding_Top,
@@ -382,7 +383,7 @@ public class PagerIndicator extends LinearLayout implements ViewPagerEx.OnPageCh
             }
             if (count > mItemCount) {
                 for (int i = 0; i < count - mItemCount; i++) {
-                    ImageView indicator = new ImageView(mContext);
+                    PhotoView indicator = new PhotoView(mContext);
                     indicator.setImageDrawable(mUnselectedDrawable);
                     indicator.setPadding((int) mUnSelectedPadding_Left,
                             (int) mUnSelectedPadding_Top,
@@ -418,7 +419,7 @@ public class PagerIndicator extends LinearLayout implements ViewPagerEx.OnPageCh
                     (int) mUnSelectedPadding_Bottom
             );
         }
-        ImageView currentSelected = (ImageView) getChildAt(position + 1);
+        PhotoView currentSelected = (PhotoView) getChildAt(position + 1);
         if (currentSelected != null) {
             currentSelected.setImageDrawable(mSelectedDrawable);
             currentSelected.setPadding(

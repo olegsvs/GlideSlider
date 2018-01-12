@@ -3,7 +3,7 @@ package com.glide.slider.library.SliderTypes;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
+import com.github.chrisbanes.photoview.PhotoView;
 import android.widget.TextView;
 
 import com.glide.slider.library.R;
@@ -19,7 +19,7 @@ public class TextSliderView extends BaseSliderView {
     @Override
     public View getView() {
         View v = LayoutInflater.from(getContext()).inflate(R.layout.render_type_text, null);
-        ImageView target = (ImageView) v.findViewById(R.id.glide_slider_image);
+        PhotoView target = (PhotoView) v.findViewById(R.id.glide_slider_image);
         TextView description = (TextView) v.findViewById(R.id.description);
         description.setText(getDescription());
         bindEventAndShow(v, target);

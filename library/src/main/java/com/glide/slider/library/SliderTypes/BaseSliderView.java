@@ -3,7 +3,7 @@ package com.glide.slider.library.SliderTypes;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+import com.github.chrisbanes.photoview.PhotoView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
@@ -165,7 +165,7 @@ public abstract class BaseSliderView {
      * @param v               the whole view
      * @param targetImageView where to place image
      */
-    void bindEventAndShow(final View v, ImageView targetImageView) {
+    void bindEventAndShow(final View v, PhotoView targetImageView) {
         final BaseSliderView me = this;
 
         v.setOnClickListener(new View.OnClickListener() {
